@@ -33,12 +33,9 @@ public class Scraper {
                     "D" + i +
                     "%26tabId%3D58734a12-d97c-40cb-8047-df76e660f23f");
             ObjectMapper objectMapper =new ObjectMapper();
-
             String stringAsJason=  objectMapper.writeValueAsString(payload);
-           // System.out.println(stringAsJason);
         for (int j = 0; j < 1; j++)
         {
-
             Connection.Response response = Jsoup.connect(url)
                     .ignoreContentType(true)
                     .followRedirects(true)
@@ -51,26 +48,15 @@ public class Scraper {
                     .requestBody(String.valueOf(stringAsJason))
                     .method(Connection.Method.POST)
                     .execute();
-
-
             int statusCode = response.statusCode();
             System.out.println(statusCode);
-      //      System.out.println(response.body());
             JSONArray jsonArray = new JSONArray(response.body());
 
             String companyName = (String) jsonArray.getJSONObject(0).getJSONArray("content").getJSONObject(1).getJSONObject("value").getJSONArray("content").getJSONObject(j).get("companyname");
             String issuerName =  (String) jsonArray.getJSONObject(0).getJSONArray("content").getJSONObject(1).getJSONObject("value").getJSONArray("content").getJSONObject(j).get("issuername");
             String datetime = (String) jsonArray.getJSONObject(0).getJSONArray("content").getJSONObject(1).getJSONObject("value").getJSONArray("content").getJSONObject(j).get("datetime");
-
-
             simpleArrayList.add(new NewsModel(companyName,issuerName,datetime));
 
-
-
-
-
         }}
-
-        System.out.println(simpleArrayList);
     }
 }
