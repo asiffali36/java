@@ -14,8 +14,5 @@ public class LseBotApplication {
         System.out.println("adding this into feature branch");
     Scraper scraper = new Scraper();
     scraper.getNews();
-
-
     }
-
 }
