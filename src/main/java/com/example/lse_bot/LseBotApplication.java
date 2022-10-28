@@ -12,7 +12,7 @@ public class LseBotApplication {
     public static void main(String[] args) throws IOException, JSONException {
         SpringApplication.run(LseBotApplication.class, args);
 
-
+        System.out.println("adding this into feature branch");
     Scraper scraper = new Scraper();
     scraper.getNews();
 
