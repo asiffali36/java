@@ -9,13 +9,11 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import javax.sql.DataSource;
-
 @Configuration
 @PropertySource("classpath:application.properties")
 public class DataSourceConfig {
     @Autowired
     Environment environment;
-
     @Bean
     DataSource dataSource()
     {
@@ -31,5 +29,4 @@ public class DataSourceConfig {
     JdbcTemplate getJDBCTamplate(){
         return new JdbcTemplate(dataSource());
     }
-
 }
