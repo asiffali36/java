@@ -14,7 +14,7 @@ public class LseController {
     {
         this.lseServices=lseServices;
     }
-    @GetMapping("/getnews")
+    @GetMapping("/GetNews")
     public ResponseEntity<List<NewsModel>> getAllRecords() {
         return ResponseEntity.status(200).body(lseServices.getnews());
     }
