@@ -10,7 +10,6 @@ import java.util.List;
 public class LseServices {
     @Autowired
     LseRepo lseRepo;
-
 public List getnews()
 {
    return lseRepo.getNews();
